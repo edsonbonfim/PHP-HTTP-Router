@@ -50,14 +50,14 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-travis]: https://img.shields.io/travis/BonfimSystems/Routing/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/BonfimSystems/Routing.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/BonfimSystems/Routing.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/124445597/shield?branch=master
+[ico-styleci]: https://styleci.io/repos/124523883/shield?branch=master
 [ico-downloads]: https://img.shields.io/packagist/dt/bonfim/routing.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/bonfim/routing
 [link-travis]: https://travis-ci.org/BonfimSystems/Routing
 [link-scrutinizer]: https://scrutinizer-ci.com/g/BonfimSystems/Routing/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/BonfimSystems/Routing
-[link-styleci]: https://styleci.io/repos/124445597
+[link-styleci]: https://styleci.io/repos/124523883
 [link-downloads]: https://packagist.org/packages/bonfim/routing
 [link-author]: https://github.com/EdsonOnildoJR
 [link-contributors]: ../../contributors
