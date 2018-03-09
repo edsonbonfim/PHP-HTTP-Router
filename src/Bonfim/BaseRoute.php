@@ -40,6 +40,6 @@ class BaseRoute
     public function __call(string $function, array $args)
     {
         $key = strtolower(substr($function, 3, strlen($function)));
-            return $this->$key;
+        return $this->$key;
     }
 }
