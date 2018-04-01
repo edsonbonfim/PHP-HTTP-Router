@@ -107,6 +107,10 @@ class BaseRouter
             }
         }
 
+        foreach ($_POST as $key => $value) {
+            $route->setArgs($key, $value);
+        }
+            
         $path = implode('/', $path);
         $route->setPath($path);
 
