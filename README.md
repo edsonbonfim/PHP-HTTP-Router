@@ -37,12 +37,12 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-travis]: https://img.shields.io/travis/EdsonOnildoJR/BonfimRouter/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/EdsonOnildoJR/BonfimRouter.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/EdsonOnildoJR/BonfimRouter.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/{styleci}/shield?branch=master
+[ico-styleci]: https://styleci.io/repos/124523883/shield?branch=master
 
 [link-version]:https://github.com/EdsonOnildoJR/BonfimRouter/releases
 [link-travis]: https://travis-ci.org/EdsonOnildoJR/BonfimRouter
 [link-scrutinizer]: https://scrutinizer-ci.com/g/EdsonOnildoJR/BonfimRouter/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/EdsonOnildoJR/BonfimRouter
-[link-styleci]: https://styleci.io/repos/124528765
+[link-styleci]: https://styleci.io/repos/124523883
 [link-author]: https://github.com/EdsonOnildoJR
 [link-contributors]: https://github.com/EdsonOnildoJR/BonfimRouter/contributors

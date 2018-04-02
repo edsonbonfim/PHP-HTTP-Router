@@ -1,7 +1,7 @@
 {
     "name": "bonfim/router",
     "type": "library",
-    "description": "{description}",
+    "description": "A simple PHP router",
     "homepage": "https://github.com/EdsonOnildoJR/BonfimRouter",
     "license": "MIT",
     "authors": [
