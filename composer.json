@@ -1,21 +1,13 @@
 {
-    "name": "bonfim/routing",
+    "name": "bonfim/router",
     "type": "library",
-    "description": "Bonfim Routing Component.",
-    "keywords": [
-        "BonfimSystems",
-        "Bonfim",
-        "routing",
-        "route",
-        "router",
-        "PHP"
-    ],
-    "homepage": "https://github.com/BonfimSystems/routing",
+    "description": "{description}",
+    "homepage": "https://github.com/EdsonOnildoJR/BonfimRouter",
     "license": "MIT",
     "authors": [
         {
             "name": "Edson Onildo",
-            "email": "edsononildo@bonfimsystems.com",
+            "email": "inbox.edsononildo@gmail.com",
             "homepage": "https://github.com/EdsonOnildoJR",
             "role": "Developer"
         }
@@ -29,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Bonfim\\Component\\Routing\\": "src/Bonfim/"
+            "Bonfim\\": "src/Bonfim/"
         }
     },
     "autoload-dev": {
@@ -39,9 +31,9 @@
     },
     "scripts": {
         "test": "phpunit",
+        "example": "php -S localhost:3000 -t example",
         "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
-        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
-        "example": "php -S localhost:3000 -t example"
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
     },
     "extra": {
         "branch-alias": {
