@@ -1,4 +1,4 @@
-# BonfimRouter
+# Simple PHP router
 
 [![Latest Version][ico-version]][link-version]
 [![Build Status][ico-travis]][link-travis]
@@ -6,14 +6,14 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![StyleCI][ico-styleci]][link-styleci]
 
-A simple PHP Router
+A simple PHP router
 
 ## Install
 
 Via Composer
 
 ``` sh
-$ composer require bonfim/router
+$ composer require edsononildo/router
 ```
 
 ## Contributing
@@ -33,16 +33,16 @@ If you discover any security related issues, please email inbox.edsononildo@gmai
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/github/release/EdsonOnildoJR/BonfimRouter.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/EdsonOnildoJR/BonfimRouter/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/EdsonOnildoJR/BonfimRouter.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/EdsonOnildoJR/BonfimRouter.svg?style=flat-square
+[ico-version]: https://img.shields.io/github/release/EdsonOnildoJR/Router.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/EdsonOnildoJR/Router/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/EdsonOnildoJR/Router.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/EdsonOnildoJR/Router.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/124523883/shield?branch=master
 
-[link-version]:https://github.com/EdsonOnildoJR/BonfimRouter/releases
-[link-travis]: https://travis-ci.org/EdsonOnildoJR/BonfimRouter
-[link-scrutinizer]: https://scrutinizer-ci.com/g/EdsonOnildoJR/BonfimRouter/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/EdsonOnildoJR/BonfimRouter
+[link-version]:https://github.com/EdsonOnildoJR/Router/releases
+[link-travis]: https://travis-ci.org/EdsonOnildoJR/Router
+[link-scrutinizer]: https://scrutinizer-ci.com/g/EdsonOnildoJR/Router/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/EdsonOnildoJR/Router
 [link-styleci]: https://styleci.io/repos/124523883
 [link-author]: https://github.com/EdsonOnildoJR
-[link-contributors]: https://github.com/EdsonOnildoJR/BonfimRouter/contributors
+[link-contributors]: https://github.com/EdsonOnildoJR/Router/contributors

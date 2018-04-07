@@ -1,8 +1,8 @@
 {
-    "name": "bonfim/router",
+    "name": "edsononildo/router",
     "type": "library",
     "description": "A simple PHP router",
-    "homepage": "https://github.com/EdsonOnildoJR/BonfimRouter",
+    "homepage": "https://github.com/EdsonOnildoJR/Router",
     "license": "MIT",
     "authors": [
         {
@@ -21,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Bonfim\\": "src/Bonfim/"
+            "Router\\": "src/Router/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/Bonfim/"
+            "Tests\\": "tests/Router/"
         }
     },
     "scripts": {

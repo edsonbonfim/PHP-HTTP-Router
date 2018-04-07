@@ -1,6 +1,6 @@
 <?php
 
-namespace Bonfim\Component\Routing;
+namespace Router;
 
 use \Exception;
 
