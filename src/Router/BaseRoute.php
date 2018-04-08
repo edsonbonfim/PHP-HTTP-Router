@@ -18,6 +18,15 @@ class BaseRoute
         }
     }
 
+    public function __get($key)
+    {
+        if (property_exists($this, $key)) {
+            return $this->$key;
+        }
+
+        return null;
+    }
+
     public function getArgs(?string $key = null)
     {
         if (!is_null($key)) {
