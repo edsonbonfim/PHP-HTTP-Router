@@ -2,22 +2,37 @@
 
 namespace Router;
 
-use Exception;
-
+/**
+ * Class Route
+ * @package Router
+ */
 class Route
 {
-    private static $route;
+    /**
+     * @var BaseRouter
+     */
     private $router;
 
-    private $controller;
-    private $action;
+    /**
+     * @var
+     */
+    private static $route;
+    /**
+     * @var null
+     */
     private static $match = null;
 
+    /**
+     * Route constructor.
+     */
     private function __construct()
     {
         $this->router = new BaseRouter();
     }
 
+    /**
+     * @return Route
+     */
     private static function route(): Route
     {
         if (!isset(self::$route) || is_null(self::$route)) {
@@ -27,32 +42,10 @@ class Route
         return self::$route;
     }
 
-    public function call(string $verb, string $path, string $actionController): Route
-    {
-        $this->parseControllerAction([$path, $actionController]);
-
-        $this->router->add([
-            'verb'       => $verb,
-            'path'       => $path,
-            'controller' => $this->controller,
-            'action'     => $this->action
-        ]);
-
-        return $this;
-    }
-
-    private function parseControllerAction($args): void
-    {
-        if (!preg_match('/([\w]+)::([\w]+)/is', $args[1], $callback)) {
-            $message = "Invalid callback('{$args[1]}') to '{$args[0]}' route. Try: callback('Controller::action)'";
-            throw new Exception($message);
-        }
-
-        $this->controller = $callback[1];
-        $this->action     = $callback[2];
-    }
-
-    public static function match(): ?BaseRoute
+    /**
+     * @return null|BaseRoute
+     */
+    private static function match(): ?BaseRoute
     {
         if (!isset(self::$match) || is_null(self::$match)) {
             self::$match = self::route()->router->handle();
@@ -61,8 +54,79 @@ class Route
         return self::$match;
     }
 
-    public static function __callStatic(string $function, array $args): Route
+    /**
+     * @param string $method
+     * @param string $uri
+     * @param $callback
+     * @return void
+     */
+    private function handle(string $method, string $uri, $callback): void
     {
-        return call_user_func_array([self::route(), 'call'], array_merge([$function], $args));
+        $this->router->add([
+            'uri' => $uri,
+            'name' => '',
+            'method' => $method,
+            'callback' => $callback
+        ]);
+
+        $match = $this->match();
+
+        call_user_func_array($match->getCallback(), $match->getArgs());
+
+        exit;
+    }
+
+    /**
+     * @param string $uri
+     * @param $callback
+     */
+    public static function get(string $uri, $callback): void
+    {
+        self::route()->handle('get', $uri, $callback);
+    }
+
+    /**
+     * @param string $uri
+     * @param $callback
+     */
+    public static function post(string $uri, $callback): void
+    {
+        self::route()->handle('post', $uri, $callback);
+    }
+
+    /**
+     * @param string $uri
+     * @param $callback
+     */
+    public static function put(string $uri, $callback): void
+    {
+        self::route()->handle('put', $uri, $callback);
+    }
+
+    /**
+     * @param string $uri
+     * @param $callback
+     */
+    public static function patch(string $uri, $callback): void
+    {
+        self::route()->handle('patch', $uri, $callback);
+    }
+
+    /**
+     * @param string $uri
+     * @param $callback
+     */
+    public static function delete(string $uri, $callback): void
+    {
+        self::route()->handle('delete', $uri, $callback);
+    }
+
+    /**
+     * @param string $uri
+     * @param $callback
+     */
+    public static function options(string $uri, $callback): void
+    {
+        self::route()->handle('options', $uri, $callback);
     }
 }

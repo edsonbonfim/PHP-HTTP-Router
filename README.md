@@ -12,6 +12,10 @@ A simple PHP router
 
 Via Composer
 
+## Documentation
+
+[Check out the documentation](https://EdsonOnildoJR.github.io/Router).
+
 ``` sh
 $ composer require edsononildo/router
 ```

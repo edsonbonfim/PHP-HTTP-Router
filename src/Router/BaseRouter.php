@@ -2,8 +2,6 @@
 
 namespace Router;
 
-use \Exception;
-
 class BaseRouter
 {
     private $path;
@@ -21,12 +19,8 @@ class BaseRouter
 
     public function add(array $route): void
     {
-        if ($route['path'] == '/') {
-            $route['path'] = '/index';
-        }
-
-        if (!in_array($route['verb'], ['get', 'post'])) {
-            throw new Exception("Invalid '{$route['verb']}' verb to '{$route['path']}' route");
+        if ($route['uri'] == '/') {
+            $route['uri'] = '/index';
         }
 
         $this->routes[] = new BaseRoute($route);
@@ -40,12 +34,12 @@ class BaseRouter
             }
         }
 
-        return null;
+        die('<h1>ERROR 404: NOT FOUND</h1>');
     }
 
     private function checkVerb(BaseRoute $route): bool
     {
-        if ($this->verb != $route->getVerb()) {
+        if ($this->verb != $route->getMethod()) {
             return false;
         }
 
@@ -58,7 +52,7 @@ class BaseRouter
             return false;
         }
 
-        $routePath = $this->parseBrowserPath($route->getPath());
+        $routePath = $this->parseBrowserPath($route->getUri());
 
         if (count($routePath) != count($this->path)) {
             return false;
@@ -85,34 +79,33 @@ class BaseRouter
     private function parsePath(BaseRoute $route): bool
     {
         $path = $this->path;
-        $routePath = $this->parseBrowserPath($route->getPath());
+        $routePath = $this->parseBrowserPath($route->getUri());
 
         for ($i = 0; $i < count($routePath); $i++) {
-            $path[$i] = preg_replace('/:.*/', $this->path[$i], $routePath[$i]);
-
+            $path[$i] = preg_replace('/\@.*/', $this->path[$i], $routePath[$i]);
             if ($path[$i] != $routePath[$i]) {
                 // Regular expression matching
-                if (preg_match('/:([\w]+)\((.*?)\)/', $routePath[$i], $match)) {
+                if (preg_match('/\@([\w]+):(.*)/', $routePath[$i], $match)) {
                     if (preg_match('/'.$match[2].'/', $path[$i], $match[2])) {
                         if ($path[$i] != $match[2][0]) {
                             return false;
                         }
-                        $route->setArgs($match[1], $match[2][0]);
+                        $route->setArg($match[1], $match[2][0]);
                     } else {
                         return false;
                     }
                 } else {
-                    $route->setArgs(str_replace(':', '', $routePath[$i]), $path[$i]);
+                    $route->setArg(str_replace(':', '', $routePath[$i]), $path[$i]);
                 }
             }
         }
 
         foreach ($_POST as $key => $value) {
-            $route->setArgs($key, $value);
+            $route->setArg($key, $value);
         }
             
         $path = implode('/', $path);
-        $route->setPath($path);
+        $route->setUri($path);
 
         return true;
     }

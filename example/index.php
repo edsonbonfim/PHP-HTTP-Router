@@ -8,7 +8,9 @@ include '../vendor/autoload.php';
 
 use Router\Route;
 
-Route::get('/', 'HomeController::index');
-Route::get('/user/:username([\w]+)/post/:id([0-9]+)', 'UsersController::showPost');
+function test($username)
+{
+    echo "Hello {$username}";
+}
 
-var_dump(Route::match());
+Route::get('/user/@username:[\w]+', 'test');

@@ -2,53 +2,113 @@
 
 namespace Router;
 
+/**
+ * Class BaseRoute
+ * @package Router
+ */
 class BaseRoute
 {
+    /**
+     * @var mixed
+     */
+    private $uri;
+
+    /**
+     * @var mixed
+     */
     private $name;
-    private $path;
-    private $verb;
-    private $controller;
-    private $action;
+
+    /**
+     * @var mixed
+     */
+
+    private $method;
+    /**
+     * @var mixed
+     */
+
+    private $callback;
+
+    /**
+     * @var array
+     */
     private $args = [];
 
+    /**
+     * BaseRoute constructor.
+     * @param array $route
+     */
     public function __construct(array $route)
     {
-        foreach ($route as $key => $value) {
-            $this->$key = $value;
-        }
+        $this->uri = $route['uri'];
+        $this->name = $route['name'];
+        $this->method = $route['method'];
+        $this->callback = $route['callback'];
     }
 
-    public function __get($key)
+    /**
+     * @return string
+     */
+    public function getUri(): string
     {
-        if (property_exists($this, $key)) {
-            return $this->$key;
-        }
-
-        return null;
+        return $this->uri;
     }
 
-    public function getArgs(?string $key = null)
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
-        if (!is_null($key)) {
-            return $this->args[$key];
-        }
+        return $this->name;
+    }
 
+    /**
+     * @return string
+     */
+    public function getMethod(): string
+    {
+        return $this->method;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCallback()
+    {
+        return $this->callback;
+    }
+
+    /**
+     * @return array|mixed
+     */
+    public function getArgs(): array
+    {
         return $this->args;
     }
 
-    public function setPath(string $path): void
+    /**
+     * @param $key
+     * @return mixed
+     */
+    public function getArg($key)
     {
-        $this->path = $path;
+        return $this->args[$key];
     }
 
-    public function setArgs(string $key, string $value): void
+    /**
+     * @param string $uri
+     */
+    public function setUri(string $uri): void
+    {
+        $this->uri = $uri;
+    }
+
+    /**
+     * @param string $key
+     * @param string $value
+     */
+    public function setArg(string $key, string $value): void
     {
         $this->args[$key] = $value;
-    }
-
-    public function __call(string $function, array $args)
-    {
-        $key = strtolower(substr($function, 3, strlen($function)));
-        return $this->$key;
     }
 }
