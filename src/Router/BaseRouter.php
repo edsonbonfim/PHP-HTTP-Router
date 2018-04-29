@@ -6,7 +6,7 @@ class BaseRouter
 {
     private $path;
     private $verb;
-    private $routes = [];
+    private static $routes = [];
 
     public function __construct()
     {
@@ -23,12 +23,12 @@ class BaseRouter
             $route['uri'] = '/index';
         }
 
-        $this->routes[] = new BaseRoute($route);
+        self::$routes[] = new BaseRoute($route);
     }
 
     public function handle(): ?BaseRoute
     {
-        foreach ($this->routes as $route) {
+        foreach (self::$routes as $route) {
             if ($this->checkVerb($route) && $this->checkPath($route)) {
                 return $route;
             }
@@ -80,7 +80,7 @@ class BaseRouter
         $path = $this->path;
         $routePath = $this->parseBrowserPath($route->getUri());
 
-        for ($i = 0; $i < count($routePath); $i++) {
+        for ($i = 0; $i < count($routePath) && $i < count($path); $i++) {
             $path[$i] = preg_replace('/\@.*/', $this->path[$i], $routePath[$i]);
             if ($path[$i] != $routePath[$i]) {
                 // Regular expression matching
@@ -116,7 +116,7 @@ class BaseRouter
 
     public function getByName($name): ?BaseRoute
     {
-        foreach ($this->routes as $route) {
+        foreach (self::$routes as $route) {
             if ($route->getName() == $name) {
                 return $route;
             }

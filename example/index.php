@@ -17,4 +17,8 @@ Route::get('/', function () {
     echo "Hello";
 });
 
+Route::get('/dashboard/clients/list', function () {
+    echo "Clientes";
+});
+
 Route::get('/user/@username:[\w]+', 'test');
