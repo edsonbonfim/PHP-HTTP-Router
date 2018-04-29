@@ -13,4 +13,8 @@ function test($username)
     echo "Hello {$username}";
 }
 
+Route::get('/', function () {
+    echo "Hello";
+});
+
 Route::get('/user/@username:[\w]+', 'test');

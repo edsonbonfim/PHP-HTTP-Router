@@ -71,9 +71,10 @@ class Route
 
         $match = $this->match();
 
-        call_user_func_array($match->getCallback(), $match->getArgs());
-
-        exit;
+        if ($match) {
+            call_user_func_array($match->getCallback(), $match->getArgs());
+            exit;
+        }
     }
 
     /**

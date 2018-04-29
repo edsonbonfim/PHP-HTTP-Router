@@ -33,8 +33,7 @@ class BaseRouter
                 return $route;
             }
         }
-
-        die('<h1>ERROR 404: NOT FOUND</h1>');
+        return null;
     }
 
     private function checkVerb(BaseRoute $route): bool
