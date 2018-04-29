@@ -17,7 +17,7 @@ Via Composer
 [Check out the documentation](https://EdsonOnildoJR.github.io/Router).
 
 ``` sh
-$ composer require edsononildo/router
+$ composer require edsononildo/router:^1.0
 ```
 
 ## Contributing
