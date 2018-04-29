@@ -129,6 +129,16 @@ Route::any('/', function() {
 });
 ```
 
+And, of course, you may set a ```default``` route that will be executed when there is no match:
+
+```php
+Route::default(function() {
+    //
+});
+```
+
+If there is more than one call to the default route, only the last one will be executed.
+
 [ico-version]: https://img.shields.io/github/release/EdsonOnildoJR/Router.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/EdsonOnildoJR/Router/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/EdsonOnildoJR/Router.svg?style=flat-square

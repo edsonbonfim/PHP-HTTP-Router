@@ -13,14 +13,19 @@ class Route
      */
     private $router;
 
+    private $status = false;
+
     /**
      * @var
      */
     private static $route;
+
     /**
      * @var null
      */
     private static $match = null;
+
+    private static $defaultCallback = null;
 
     /**
      * Route constructor.
@@ -28,6 +33,18 @@ class Route
     private function __construct()
     {
         $this->router = new BaseRouter();
+    }
+
+    public function __destruct()
+    {
+        if (!$this->status) {
+            $callback = self::$defaultCallback;
+            if (is_callable($callback)) {
+                $callback();
+            }
+        }
+
+        exit;
     }
 
     /**
@@ -45,7 +62,7 @@ class Route
     /**
      * @return null|BaseRoute
      */
-    private static function match(): ?BaseRoute
+    private static function dispatch(): ?BaseRoute
     {
         if (!isset(self::$match) || is_null(self::$match)) {
             self::$match = self::route()->router->handle();
@@ -69,10 +86,11 @@ class Route
             'callback' => $callback
         ]);
 
-        $match = $this->match();
+        $match = $this->dispatch();
 
         if ($match) {
             call_user_func_array($match->getCallback(), $match->getArgs());
+            $this->status = true;
             exit;
         }
     }
@@ -129,5 +147,23 @@ class Route
     public static function options(string $uri, $callback): void
     {
         self::route()->handle('options', $uri, $callback);
+    }
+
+    public static function any(string $uri, $callback): void
+    {
+        $methods = ['get', 'post', 'put', 'patch', 'delete', 'options'];
+        self::match($methods, $uri, $callback);
+    }
+
+    public static function match(array $methods, string $uri, $callback): void
+    {
+        foreach ($methods as $method) {
+            self::route()->handle($method, $uri, $callback);
+        }
+    }
+
+    public static function default($callback): void
+    {
+        self::$defaultCallback = $callback;
     }
 }

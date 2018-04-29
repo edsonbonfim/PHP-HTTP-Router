@@ -14,11 +14,11 @@ function test($username)
 }
 
 Route::get('/', function () {
-    echo "Hello";
+    echo 'Hello';
 });
 
-Route::get('/dashboard/clients/list', function () {
-    echo "Clientes";
+Route::match(['get'], '/dashboard/@option:[\w]+/list/@id:[\d]+', function ($option, $id) {
+    echo "$option $id";
 });
 
 Route::get('/user/@username:[\w]+', 'test');
