@@ -139,6 +139,25 @@ Route::default(function() {
 
 If there is more than one call to the default route, only the last one will be executed.
 
+# Named Parameters
+
+You may specify named parameters in your routes which will be passed along to your callback function:
+
+```php
+Route::get('/@name/@id', function($name, $id) {
+    echo "hello, $name ($id)!";
+});
+```
+
+You can also include regular expressions with your named parameters by using the : delimiter:
+
+```php
+Route::get('/@name/@id:[0-9]{3}', function($name, $id) {
+    // This will match /bob/123
+    // But will not match /bob/12345
+});
+```
+
 [ico-version]: https://img.shields.io/github/release/EdsonOnildoJR/Router.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/EdsonOnildoJR/Router/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/EdsonOnildoJR/Router.svg?style=flat-square
