@@ -6,6 +6,10 @@ namespace Router;
  * Class Route
  * @package Router
  */
+/**
+ * Class Route
+ * @package Router
+ */
 class Route
 {
     /**
@@ -13,6 +17,9 @@ class Route
      */
     private $router;
 
+    /**
+     * @var bool
+     */
     private $status = false;
 
     /**
@@ -25,6 +32,9 @@ class Route
      */
     private static $match = null;
 
+    /**
+     * @var null
+     */
     private static $defaultCallback = null;
 
     /**
@@ -35,6 +45,9 @@ class Route
         $this->router = new BaseRouter();
     }
 
+    /**
+     * Route destructor.
+     */
     public function __destruct()
     {
         if (!$this->status) {
@@ -149,12 +162,21 @@ class Route
         self::route()->handle('options', $uri, $callback);
     }
 
+    /**
+     * @param string $uri
+     * @param $callback
+     */
     public static function any(string $uri, $callback): void
     {
         $methods = ['get', 'post', 'put', 'patch', 'delete', 'options'];
         self::match($methods, $uri, $callback);
     }
 
+    /**
+     * @param array $methods
+     * @param string $uri
+     * @param $callback
+     */
     public static function match(array $methods, string $uri, $callback): void
     {
         foreach ($methods as $method) {
@@ -162,6 +184,9 @@ class Route
         }
     }
 
+    /**
+     * @param $callback
+     */
     public static function default($callback): void
     {
         self::$defaultCallback = $callback;

@@ -2,12 +2,28 @@
 
 namespace Router;
 
+/**
+ * Class BaseRouter
+ * @package Router
+ */
 class BaseRouter
 {
+    /**
+     * @var array
+     */
     private $path;
+    /**
+     * @var string
+     */
     private $verb;
+    /**
+     * @var array
+     */
     private static $routes = [];
 
+    /**
+     * BaseRouter constructor.
+     */
     public function __construct()
     {
         $this->verb = strtolower($_SERVER['REQUEST_METHOD']);
@@ -17,6 +33,9 @@ class BaseRouter
         }
     }
 
+    /**
+     * @param array $route
+     */
     public function add(array $route): void
     {
         if ($route['uri'] == '/') {
@@ -26,6 +45,9 @@ class BaseRouter
         self::$routes[] = new BaseRoute($route);
     }
 
+    /**
+     * @return null|BaseRoute
+     */
     public function handle(): ?BaseRoute
     {
         foreach (self::$routes as $route) {
@@ -36,6 +58,10 @@ class BaseRouter
         return null;
     }
 
+    /**
+     * @param BaseRoute $route
+     * @return bool
+     */
     private function checkVerb(BaseRoute $route): bool
     {
         if ($this->verb != $route->getMethod()) {
@@ -45,6 +71,10 @@ class BaseRouter
         return true;
     }
 
+    /**
+     * @param BaseRoute $route
+     * @return bool
+     */
     private function checkPath(BaseRoute $route): bool
     {
         if (!$this->parsePath($route)) {
@@ -66,6 +96,10 @@ class BaseRouter
         return true;
     }
 
+    /**
+     * @param string $path
+     * @return array
+     */
     private function parseBrowserPath(string $path): array
     {
         $path = explode('/', $path);
@@ -75,6 +109,10 @@ class BaseRouter
         return $path;
     }
 
+    /**
+     * @param BaseRoute $route
+     * @return bool
+     */
     private function parsePath(BaseRoute $route): bool
     {
         $path = $this->path;
@@ -109,11 +147,19 @@ class BaseRouter
         return true;
     }
 
+    /**
+     * @param $id
+     * @return null|BaseRoute
+     */
     public function getById($id): ?BaseRoute
     {
         return $this->routes[$id] ?? null;
     }
 
+    /**
+     * @param $name
+     * @return null|BaseRoute
+     */
     public function getByName($name): ?BaseRoute
     {
         foreach (self::$routes as $route) {

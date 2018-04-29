@@ -6,6 +6,10 @@ namespace Router;
  * Class BaseRoute
  * @package Router
  */
+/**
+ * Class BaseRoute
+ * @package Router
+ */
 class BaseRoute
 {
     /**
@@ -96,19 +100,19 @@ class BaseRoute
     }
 
     /**
-     * @param string $uri
-     */
-    public function setUri(string $uri): void
-    {
-        $this->uri = $uri;
-    }
-
-    /**
      * @param string $key
      * @param string $value
      */
     public function setArg(string $key, string $value): void
     {
         $this->args[$key] = $value;
+    }
+
+    /**
+     * @param string $uri
+     */
+    public function setUri(string $uri): void
+    {
+        $this->uri = $uri;
     }
 }
