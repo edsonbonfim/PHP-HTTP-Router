@@ -10,10 +10,14 @@ namespace Router;
  * Class Route
  * @package Router
  */
+/**
+ * Class Route
+ * @package Router
+ */
 class Route
 {
     /**
-     * @var BaseRouter
+     * @var Router
      */
     private $router;
 
@@ -42,7 +46,7 @@ class Route
      */
     private function __construct()
     {
-        $this->router = new BaseRouter();
+        $this->router = new Router();
     }
 
     /**
@@ -73,9 +77,9 @@ class Route
     }
 
     /**
-     * @return null|BaseRoute
+     * @return null|Client
      */
-    private static function dispatch(): ?BaseRoute
+    private static function dispatch(): ?Client
     {
         if (!isset(self::$match) || is_null(self::$match)) {
             self::$match = self::route()->router->handle();

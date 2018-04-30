@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use Router\BaseRoute;
+use Router\Client;
 use PHPUnit\Framework\TestCase;
 
 class BaseRouteTest extends TestCase
@@ -13,7 +13,7 @@ class BaseRouteTest extends TestCase
     {
         parent::setUp();
 
-        $this->route = new BaseRoute([
+        $this->route = new Client([
             'uri' => '/',
             'name' => 'test',
             'method' => 'get',
