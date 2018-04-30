@@ -26,7 +26,7 @@ class BaseRouteTest extends TestCase
 
     public function testRouteGetUri()
     {
-        $this->assertEquals('/index', $this->route->getUri());
+        $this->assertEquals(['index'], $this->route->getUri());
     }
 
     public function testRouteGetName()
