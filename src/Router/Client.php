@@ -3,14 +3,10 @@
 namespace Router;
 
 /**
- * Class BaseRoute
+ * Class Client
  * @package Router
  */
-/**
- * Class BaseRoute
- * @package Router
- */
-class BaseRoute
+class Client
 {
     /**
      * @var mixed
@@ -39,7 +35,7 @@ class BaseRoute
     private $args = [];
 
     /**
-     * BaseRoute constructor.
+     * Client constructor.
      * @param array $route
      */
     public function __construct(array $route)
@@ -51,11 +47,19 @@ class BaseRoute
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getUri(): string
+    public function getUri(): array
     {
-        return $this->uri;
+        $uri = explode('/', $this->uri);
+        $uri = array_filter($uri);
+        $uri = array_values($uri);
+
+        if (count($uri) == 0) {
+            return ['index'];
+        }
+
+        return $uri;
     }
 
     /**
