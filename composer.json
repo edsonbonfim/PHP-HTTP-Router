@@ -1,7 +1,7 @@
 {
     "name": "edsononildo/router",
     "type": "library",
-    "description": "A simple PHP router",
+    "description": "A fast and powerful router that maps route callbacks to specific HTTP request methods and URIs.",
     "homepage": "https://github.com/EdsonOnildoJR/Router",
     "license": "MIT",
     "authors": [
