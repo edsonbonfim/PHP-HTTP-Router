@@ -37,7 +37,8 @@ Require via [composer](https://getcomposer.org/download/)
 $ composer require edsononildo/router:^1.0
 ```
 
-# Basic Usage
+Basic Usage
+-----------
 
 Include the autoloader of composer:
 
@@ -57,7 +58,8 @@ Route::get('/', function () {
 });
 ```
 
-# Routing
+Routing
+-------
 
 The routing is done by matching a URL pattern with a callback function:
 
@@ -117,7 +119,8 @@ Route::get('/', [$greeting, 'hello']);
 
 Routes are matched in the order they are defined. The first route to match a request will be invoked.
 
-# Method Routing
+Method Routing
+--------------
 
 The router allows you to register routes that respond to any HTTP verb:
 
