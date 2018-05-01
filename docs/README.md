@@ -1,4 +1,5 @@
-# Simple PHP Router 1.0 Documentation
+PHP Router 1.0 Documentation
+============================
 
 [![Latest Version][ico-version]][link-version]
 [![Build Status][ico-travis]][link-travis]
@@ -6,17 +7,33 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![StyleCI][ico-styleci]][link-styleci]
 
-This is the full documentation for Simple PHP Router 1.0.x
+This is the full documentation for PHP Router 1.0.x
 
-# Prerequisites
+Table of Contents
+-----------------
 
-PHP >= 7.1.0
+* [Prerequisites](#prerequisites)
+* [Installation](#installation)
+* [Basic Usage](#basic-usage)
+* [Routing](#routing)
+* [Method Routing](#method-routing)
+* [Named Parameters](#named-parameters)
+* [Contributing](#contributing)
+* [Security](#security)
+* [Credits](#credits)
+* [License](#license)
 
-# Installation
+Prerequisites
+-------------
 
-Via [composer](https://getcomposer.org/download/):
+PHP 7.1+
 
-```sh
+Installation
+------------
+
+Require via [composer](https://getcomposer.org/download/)
+
+``` sh
 $ composer require edsononildo/router:^1.0
 ```
 
@@ -139,7 +156,8 @@ Route::default(function() {
 
 If there is more than one call to the default route, only the last one will be executed.
 
-# Named Parameters
+Named Parameters
+----------------
 
 You may specify named parameters in your routes which will be passed along to your callback function:
 
@@ -158,6 +176,27 @@ Route::get('/@name/@id:[0-9]{3}', function($name, $id) {
 });
 ```
 
+Contributing
+------------
+
+Please see [CONTRIBUTING](https://github.com/EdsonOnildoJR/Router/blob/master/CONTRIBUTING.md) and [CODE_OF_CONDUCT](https://github.com/EdsonOnildoJR/Router/blob/master/CODE_OF_CONDUCT.md) for details.
+
+Security
+--------
+
+If you discover any security related issues, please email inbox.edsononildo@gmail.com instead of using the issue tracker.
+
+Credits
+-------
+
+* [Edson Onildo][link-author]
+* [All Contributors][link-contributors]
+
+License
+-------
+
+The MIT License (MIT). Please see [License File](https://github.com/EdsonOnildoJR/Router/blob/master/LICENSE.md) for more information.
+
 [ico-version]: https://img.shields.io/github/release/EdsonOnildoJR/Router.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/EdsonOnildoJR/Router/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/EdsonOnildoJR/Router.svg?style=flat-square
@@ -171,4 +210,3 @@ Route::get('/@name/@id:[0-9]{3}', function($name, $id) {
 [link-styleci]: https://styleci.io/repos/124523883
 [link-author]: https://github.com/EdsonOnildoJR
 [link-contributors]: https://github.com/EdsonOnildoJR/Router/contributors
-

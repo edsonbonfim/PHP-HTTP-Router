@@ -1,4 +1,5 @@
-# Simple PHP router
+PHP Router
+==========
 
 [![Latest Version][ico-version]][link-version]
 [![Build Status][ico-travis]][link-travis]
@@ -6,34 +7,40 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![StyleCI][ico-styleci]][link-styleci]
 
-A simple PHP router
+A fast and powerful router that maps route callbacks to specific HTTP request methods and URIs. It supports parameters and pattern matching.
 
-## Install
+Installation
+------------
 
-Via Composer
+Require via [composer](https://getcomposer.org/download/)
 
 ``` sh
 $ composer require edsononildo/router:^1.0
 ```
 
-## Documentation
+Documentation
+-------------
 
 [Check out the documentation](https://EdsonOnildoJR.github.io/Router).
 
-## Contributing
+Contributing
+------------
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
 
-## Security
+Security
+--------
 
 If you discover any security related issues, please email inbox.edsononildo@gmail.com instead of using the issue tracker.
 
-## Credits
+Credits
+-------
 
-- [Edson Onildo][link-author]
-- [All Contributors][link-contributors]
+* [Edson Onildo][link-author]
+* [All Contributors][link-contributors]
 
-## License
+License
+-------
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
