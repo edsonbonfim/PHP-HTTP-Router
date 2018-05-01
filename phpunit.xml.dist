@@ -10,7 +10,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="bonfim\router Test Suite">
+        <testsuite name="edsononildo\router Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
