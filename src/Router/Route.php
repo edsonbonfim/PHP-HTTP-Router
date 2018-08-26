@@ -58,10 +58,9 @@ class Route
             $callback = self::$defaultCallback;
             if (is_callable($callback)) {
                 $callback();
+		exit;
             }
         }
-
-        exit;
     }
 
     /**
