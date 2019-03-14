@@ -1,6 +1,6 @@
 <?php
 
-namespace Sketch\Http;
+namespace EdsonOnildo\Router;
 
 
 class Request
