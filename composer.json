@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "edsononildo\\router\\": "src"
+            "EdsonOnildo\\Router\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "edsononildo\\router\\": "tests"
+            "EdsonOnildo\\Router\\": "tests"
         }
     },
     "scripts": {
