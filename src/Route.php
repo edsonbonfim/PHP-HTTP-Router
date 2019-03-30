@@ -126,7 +126,6 @@ class Route
             }
 
             $this->status = true;
-            unset($_SESSION['sketch']['errors']);
             exit;
         }
     }

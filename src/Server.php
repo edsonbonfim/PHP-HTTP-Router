@@ -21,7 +21,7 @@ class Server
      */
     public function getUri(): array
     {
-        $uri = explode('/', $_SERVER['PATH_INFO']);
+        $uri = explode('/', @$_SERVER['PATH_INFO']);
         $uri = array_filter($uri);
         $uri = array_values($uri);
 
