@@ -1,4 +1,4 @@
-eeeeePHP-Http-Router
+PHP-Http-Router
 ===============
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
