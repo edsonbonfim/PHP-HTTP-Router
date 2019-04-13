@@ -1,4 +1,4 @@
-PHP-Http-Router
+eeeeePHP-Http-Router
 ===============
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
@@ -178,13 +178,6 @@ Route::get('/@name/@id:[0-9]{3}', function($name, $id) {
     // This will match /bob/123
     // But will not match /bob/12345
 });
-```
-
-## Usage
-
-``` php
-$skeleton = new edsononildo\router();
-echo $skeleton->echoPhrase('Hello, League!');
 ```
 
 ## Change log
