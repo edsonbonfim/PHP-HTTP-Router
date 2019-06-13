@@ -2,7 +2,7 @@
 
 namespace EdsonOnildo\Router;
 
-use Sketch\View\Tpl;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class Route
@@ -79,9 +79,9 @@ class Route
     }
 
     /**
-     * @return null|Client
+     * @return Request|null
      */
-    private static function dispatch(): ?Client
+    private static function dispatch(): ?Request
     {
         if (!isset(self::$match) || is_null(self::$match)) {
             self::$match = self::route()->router->handle();
@@ -98,34 +98,17 @@ class Route
      */
     private function handle(string $method, string $uri, $callback): void
     {
-        if (is_string($callback)) {
-            $callback = explode('@', $callback);
-            $status = true;
-        }
-
         $this->router->add([
             'uri' => $uri,
-            'name' => '',
             'method' => $method,
             'callback' => $callback,
-            'status' => $status ?? false
         ]);
 
         $match = $this->dispatch();
 
         if ($match) {
-
-            if ($match->getStatus()) {
-                $controller = "\\App\Controller\\" . $match->getCallback()[0];
-                $controller = new $controller;
-                $action = $match->getCallback()[1];
-                $controller->$action($match->getArgs());
-            } else {
-                $callback = $match->getCallback();
-                $callback($match->getArgs());
-            }
-
-            $this->status = true;
+            $callback = $match->attributes->get('callback');
+            $callback();
             exit;
         }
     }
@@ -206,30 +189,11 @@ class Route
         }
     }
 
-    public static function view($uri, $view, $assign = [])
-    {
-        self::get($uri, function() use ($view, $assign) {
-            foreach ($assign as $k => $v) {
-                Tpl::assign($k, $v);
-            }
-            Tpl::render("View/$view");
-        });
-    }
-
     /**
      * @param $callback
      */
     public static function default($callback): void
     {
         self::$defaultCallback = $callback;
-    }
-
-    public static function go($route = NULL)
-    {
-        is_null($route)
-            ? header("Location: " . $_SERVER['REQUEST_URI'])
-            : header("Location: $route");
-
-        exit;
     }
 }
