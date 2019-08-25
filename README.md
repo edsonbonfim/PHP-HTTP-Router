@@ -174,17 +174,17 @@ If you discover any security related issues, please email inbox.edsononildo@gmai
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/BonfimLabs/Router.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/bonfim/router.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/BonfimLabs/Router/master.svg?style=flat-square
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/BonfimLabs/Router.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/BonfimLabs/Router.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/BonfimLabs/Router.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/bonfim/router.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/BonfimLabs/Router
+[link-packagist]: https://packagist.org/packages/bonfim/router
 [link-travis]: https://travis-ci.org/BonfimLabs/Router
 [link-scrutinizer]: https://scrutinizer-ci.com/g/BonfimLabs/Router/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/BonfimLabs/Router
-[link-downloads]: https://packagist.org/packages/BonfimLabs/Router
+[link-downloads]: https://packagist.org/packages/bonfim/router
 [link-author]: https://github.com/EdsonOnildoJR
 [link-contributors]: ../../contributors
