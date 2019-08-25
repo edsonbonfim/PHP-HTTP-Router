@@ -1,15 +1,9 @@
 <?php
 
-<<<<<<< HEAD
 namespace Bonfim\Router;
 
 use ReflectionException;
 use ReflectionFunction;
-=======
-namespace EdsonOnildo\Router;
-
-use Symfony\Component\HttpFoundation\Request;
->>>>>>> master
 
 /**
  * Class Route
@@ -45,13 +39,6 @@ class Route
      */
     private static $match = null;
 
-<<<<<<< HEAD
-=======
-    /**
-     * @var null
-     */
-    private static $defaultCallback = null;
->>>>>>> master
 
     /**
      * Route constructor.
@@ -62,24 +49,6 @@ class Route
     }
 
     /**
-<<<<<<< HEAD
-=======
-     * Route destructor.
-     */
-    public function __destruct()
-    {
-        if (!$this->status) {
-            $callback = self::$defaultCallback;
-            if (is_callable($callback)) {
-                $callback();
-                unset($_SESSION['sketch']['errors']);
-                exit;
-            }
-        }
-    }
-
-    /**
->>>>>>> master
      * @return Route
      */
     private static function route(): Route
@@ -92,15 +61,9 @@ class Route
     }
 
     /**
-<<<<<<< HEAD
      * @return null|Client
      */
     private static function dispatch(): ?Client
-=======
-     * @return Request|null
-     */
-    private static function dispatch(): ?Request
->>>>>>> master
     {
         if (!isset(self::$match) || is_null(self::$match)) {
             self::$match = self::route()->router->handle();
@@ -114,7 +77,6 @@ class Route
      * @param string $uri
      * @param $callback
      * @return void
-<<<<<<< HEAD
      * @throws ReflectionException
      */
     private function handle(string $method, string $uri, \Closure $callback): void
@@ -124,20 +86,10 @@ class Route
             'name' => '',
             'method' => $method,
             'callback' => $callback
-=======
-     */
-    private function handle(string $method, string $uri, $callback): void
-    {
-        $this->router->add([
-            'uri' => $uri,
-            'method' => $method,
-            'callback' => $callback,
->>>>>>> master
         ]);
 
         $match = $this->dispatch();
 
-<<<<<<< HEAD
         $args = [];
 
         if ($match) {
@@ -165,11 +117,6 @@ class Route
             }
 
             call_user_func_array($match->getCallback(), $args);
-=======
-        if ($match) {
-            $callback = $match->attributes->get('callback');
-            $callback();
->>>>>>> master
             exit;
         }
     }
@@ -249,15 +196,4 @@ class Route
             self::route()->handle($method, $uri, $callback);
         }
     }
-<<<<<<< HEAD
-=======
-
-    /**
-     * @param $callback
-     */
-    public static function default($callback): void
-    {
-        self::$defaultCallback = $callback;
-    }
->>>>>>> master
 }
