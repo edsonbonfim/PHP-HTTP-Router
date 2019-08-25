@@ -1,6 +1,6 @@
 <?php
 
-namespace Router;
+namespace Bonfim\Router;
 
 /**
  * Class Server
@@ -21,7 +21,10 @@ class Server
      */
     public function getUri(): array
     {
-        $uri = explode('/', $_SERVER['REQUEST_URI']);
+        $uri = $_SERVER['REQUEST_URI'];
+        $uri = preg_replace('/\?.*/', '', $uri);
+
+        $uri = explode('/', $uri);
         $uri = array_filter($uri);
         $uri = array_values($uri);
 

@@ -1,8 +1,8 @@
 {
-    "name": "edsononildo/router",
+    "name": "bonfim/router",
     "type": "library",
     "description": "A fast and powerful router that maps route callbacks to specific HTTP request methods and URIs.",
-    "homepage": "https://github.com/EdsonOnildoJR/Router",
+    "homepage": "https://github.com/BonfimLabs/PHP-HTTP-Router",
     "license": "MIT",
     "authors": [
         {
@@ -21,12 +21,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Router\\": "src/Router/"
+            "Bonfim\\Router\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/Router/"
+            "Bonfim\\Router\\Tests\\": "tests/"
         }
     },
     "scripts": {

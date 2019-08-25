@@ -1,6 +1,9 @@
 <?php
 
-namespace Router;
+namespace Bonfim\Router;
+
+use ReflectionException;
+use ReflectionFunction;
 
 /**
  * Class Route
@@ -36,10 +39,6 @@ class Route
      */
     private static $match = null;
 
-    /**
-     * @var null
-     */
-    private static $defaultCallback = null;
 
     /**
      * Route constructor.
@@ -47,20 +46,6 @@ class Route
     private function __construct()
     {
         $this->router = new Router();
-    }
-
-    /**
-     * Route destructor.
-     */
-    public function __destruct()
-    {
-        if (!$this->status) {
-            $callback = self::$defaultCallback;
-            if (is_callable($callback)) {
-                $callback();
-		exit;
-            }
-        }
     }
 
     /**
@@ -92,8 +77,9 @@ class Route
      * @param string $uri
      * @param $callback
      * @return void
+     * @throws ReflectionException
      */
-    private function handle(string $method, string $uri, $callback): void
+    private function handle(string $method, string $uri, \Closure $callback): void
     {
         $this->router->add([
             'uri' => $uri,
@@ -104,9 +90,33 @@ class Route
 
         $match = $this->dispatch();
 
+        $args = [];
+
         if ($match) {
-            call_user_func_array($match->getCallback(), $match->getArgs());
-            $this->status = true;
+            $reflect = new ReflectionFunction($callback);
+
+            foreach ($reflect->getParameters() as $i => $param) {
+
+                // Caso o parametro seja tipado
+                if ($param->hasType()) {
+
+                    // Adiciona o objecto Request nos parametros da classe
+                    if ($param->getType()->getName() == Request::class) {
+                        $args[$i] = new Request();
+                    }
+
+                    // Adiciona o objeto Response nos parametros da classe
+                    if ($param->getType()->getName() == Response::class) {
+                        $args[$i] = new Response();
+                    }
+                } else {
+
+                    //Adiciona o restante dos parametros nao tipados
+                    $args[$i] = $match->getArg($param->getName());
+                }
+            }
+
+            call_user_func_array($match->getCallback(), $args);
             exit;
         }
     }
@@ -185,13 +195,5 @@ class Route
         foreach ($methods as $method) {
             self::route()->handle($method, $uri, $callback);
         }
-    }
-
-    /**
-     * @param $callback
-     */
-    public static function default($callback): void
-    {
-        self::$defaultCallback = $callback;
     }
 }
