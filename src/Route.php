@@ -79,7 +79,7 @@ class Route
      * @return void
      * @throws ReflectionException
      */
-    private function handle(string $method, string $uri, \Closure $callback): void
+    private function handle(string $method, string $uri, $callback): void
     {
         $this->router->add([
             'uri' => $uri,
@@ -93,7 +93,12 @@ class Route
         $args = [];
 
         if ($match) {
-            $reflect = new ReflectionFunction($callback);
+
+            if (is_array($callback)) {
+                $reflect = new \ReflectionMethod($callback[0], $callback[1]);
+            } else {
+                $reflect = new ReflectionFunction();
+            }
 
             foreach ($reflect->getParameters() as $i => $param) {
                 // Caso o parametro seja tipado
