@@ -2,14 +2,14 @@
 
 namespace Tests;
 
-use Router\Client;
+use Bonfim\Router\Client;
 use PHPUnit\Framework\TestCase;
 
-class BaseRouteTest extends TestCase
+class ClientTest extends TestCase
 {
     private $route;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
