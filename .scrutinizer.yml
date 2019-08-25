@@ -28,8 +28,4 @@ checks:
 tools:
     external_code_coverage:
         timeout: 600
-<<<<<<< HEAD
-        runs: 2
-=======
         runs: 3
->>>>>>> master

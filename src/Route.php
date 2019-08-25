@@ -96,10 +96,8 @@ class Route
             $reflect = new ReflectionFunction($callback);
 
             foreach ($reflect->getParameters() as $i => $param) {
-
                 // Caso o parametro seja tipado
                 if ($param->hasType()) {
-
                     // Adiciona o objecto Request nos parametros da classe
                     if ($param->getType()->getName() == Request::class) {
                         $args[$i] = new Request();
@@ -110,7 +108,6 @@ class Route
                         $args[$i] = new Response();
                     }
                 } else {
-
                     //Adiciona o restante dos parametros nao tipados
                     $args[$i] = $match->getArg($param->getName());
                 }

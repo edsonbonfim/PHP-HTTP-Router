@@ -74,15 +74,12 @@ class Router
         }
 
         foreach ($routeUri as $i => $k) {
-
             // Verifica se o parametro e' nomeado
             if (preg_match('/@(.*)/', $k, $match)) {
-
                 $name = $match[1];
 
                 // Verifica se o parametro tem alguma regex
                 if (preg_match('/([\w]+):(.*)/', $name, $match)) {
-
                     $regex = $match[2];
 
                     // Aplica a regex
@@ -96,9 +93,7 @@ class Router
 
                 // Adiciona o parametro na rota
                 $route->setArg($name, $serverUri[$i]);
-
             } else {
-
                 // Se o parametro nao for nomeado, verifica se eh igual a uri
                 if ($k != $serverUri[$i]) {
                     return false;
