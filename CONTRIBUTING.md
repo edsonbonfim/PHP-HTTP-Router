@@ -2,7 +2,11 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
+<<<<<<< HEAD
 We accept contributions via Pull Requests on [Github](https://github.com/EdsonOnildoJR/edsononildoRouter/pulls).
+=======
+We accept contributions via Pull Requests on [Github](https://github.com/edsononildo/router).
+>>>>>>> master
 
 
 ## Pull Requests

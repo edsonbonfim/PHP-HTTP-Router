@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 build
 composer.lock
 vendor
 .idea
+=======
+.idea
+build
+composer.lock
+vendor
+phpcs.xml
+phpunit.xml
+>>>>>>> master
