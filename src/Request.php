@@ -15,4 +15,14 @@ class Request
     {
         return $this->request->$name ?? null;
     }
+
+    public function count()
+    {
+        return count($this->getBody());
+    }
+
+    public function getBody()
+    {
+        return (array) $this->request;
+    }
 }
